@@ -13,11 +13,13 @@
   F(n) = F(n - 1) + F(n - 2)，其中 n > 1，给定 n ，请计算 F(n) 。
 相信这种题目大家都不陌生，大学里很喜欢考的题目，尤其是c语言这门课，当时也用c语言看过几题力扣，很复杂，之后学了java确实简单了不少，这个题首先是想到递归，递归很好实现
 斐波那契数列,代码如下：
-'''class Solution {
+```
+class Solution {
     public int fib(int n) {
         if(n == 0 || n == 1){
             return n;
         }
          return fib(n - 1) + fib(n - 2);
     }
-}'''
+}
+```
