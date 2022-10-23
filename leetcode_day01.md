@@ -63,3 +63,41 @@ class Solution {
     }
 }
 ```
+## 来到第二题 leetcode70 爬楼梯
+假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+分析一下题目（我举的例子，感觉跟数学归纳法一样） 第n级台阶 i=1，2，3，4，5  方法数sum=1，2，3，5，8
+公式就能推导出来为：f(n) = f(n-1) + f(n-2)，f(i)表示爬到了第i楼，初始化f(1)=1,f(2)=2,题目给范围是大于等于1的，所以我没有考虑n=0的情况
+```
+class Solution {
+    public int climbStairs(int n) {
+        if(n == 1){
+            return 1;
+        }
+        int[] dp = new int[n+1];
+        dp[1] = 1;
+        dp[2] = 2;
+        for(int i = 3;i <= n;i++){
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+        return dp[n];
+    }
+}
+```
+优化空间复杂度
+```
+class Solution {
+    public int climbStairs(int n) {
+        if(n == 1){
+            return 1;
+        }
+        int first = 1;
+        int second = 2;
+        for(int i = 3;i <= n;i++){
+            int third = first + second;
+            first = second;
+            second = third;
+        }
+        return second;
+    }
+}
+```
