@@ -23,3 +23,43 @@ class Solution {
     }
 }
 ```
+当然大家也都知道，递归效率是很低的，解决问题虽然很简单，缺点也很明显，所以我们得考虑效率更高的方法，那就是动态规划
+按照代码随想录编写老师的方法来讲我们分为五个步骤：
+1.dp数组为F，dp[i]为F[i],表示第i个数的斐波那契数列值
+2.递推公式dp[i] = dp[i - 1] + dp[i - 2]
+3.初始化:dp[0] = 0,dp[1] = 1
+4.遍历顺序:从前往后
+5.推导过程：我们取n=15  0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610
+```
+class Solution {
+    public int fib(int n) {
+        if(n == 0 || n == 1){
+            return n;
+        }
+       int[] dp = new int[n+1];
+       dp[0] = 0;
+       dp[1] = 1;
+       for(int i = 2;i <= n;i++){
+           dp[i] = dp[i - 1] + dp[i - 2];
+       }
+       return dp[n];
+    }
+}
+```
+```
+//不用数组
+class Solution {
+    public int fib(int n) {
+        if(n == 0 || n == 1){
+            return n;
+        }
+       int a = 0, b=1 , c=0;
+       for(int i = 2;i <= n;i++){
+           c = a + b;
+           a = b;
+           b = c;
+       }
+       return c;
+    }
+}
+```
