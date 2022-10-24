@@ -1,5 +1,5 @@
 # 刷题第二日
-## 746. 使用最小花费爬楼梯
+## leetcode746. 使用最小花费爬楼梯
 给你一个整数数组 cost ，其中 cost[i] 是从楼梯第 i 个台阶向上爬需要支付的费用。一旦你支付此费用，即可选择向上爬一个或者两个台阶。
 你可以选择从下标为 0 或下标为 1 的台阶开始爬楼梯。请你计算并返回达到楼梯顶部的最低花费。
 
@@ -9,6 +9,7 @@
  - 确定递推公式:dp[i-1]上一个台阶到dp[i],花费cost[i-1];dp[i-2]上两个台阶到dp[i],花费cost[i-2]。那么递推公式为：dp[i]=min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2])
  - 初始化：上来选0或1，不用花费，即dp[0]=dp[1]=0
  - 遍历顺序：从前往后
+ 
 java代码如下：
 ```
 class Solution {
@@ -24,11 +25,31 @@ class Solution {
 }
 ```
 
-
-
-
-
-
+## leetcode62 不同路径
+一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
+问总共有多少条不同的路径？
+![image](https://user-images.githubusercontent.com/88364565/197534539-95fdafd2-79c8-42fe-ae41-8adea7006510.png)
+ - dp[i][j]表示到i和j的位置有d[i][j]种路径，默认从(0,0)到(m-1，n-1)
+ - 递推公式：dp[i][j] = dp[i-1][j] + dp[i][j-1]
+ - 初始化：dp[0][j] = 1 ,dp[i][0] = 1;(从(0,0)开始到(i,0)只有一条路径)
+ - 遍历顺序：从前往后
+ 
+ java:
+ ```
+ class Solution {
+    public int uniquePaths(int m, int n) {
+        int[][] dp = new int[m][n];
+        for(int i = 0;i < m;i++) dp[i][0] = 1;
+        for(int j = 0;j < n;j++) dp[0][j] = 1;
+        for(int i = 1;i < m;i++){
+            for(int j = 1;j < n;j++){
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            }
+        }
+        return dp[m-1][n-1];
+    }
+}
+ ```
 
 
 
