@@ -51,5 +51,40 @@ class Solution {
 }
  ```
 
+## leetcode63 不同路径 II
+第三天才发现这是第二题的升级版，也就把他放到第二天了，这一题主要是多了障碍，我们把obstacleGrid[i][j] == 1看作有障碍，那么dp[i][j] = 0
+反之obstacleGrid[i][j] == 0,就是没障碍，继续执行dp[i][j] = dp[i-1][j] + dp[i][j-1],本题还需要注意初始化问题，就是如果第一行或者第一列有障碍
+我们用第一行有障碍举例，即obstacleGrid[i][0] == 1,那么dp[i][0] = 0,obstacleGrid == 0,dp[i][0] = 1;
+java代码如下
+```
+class Solution {
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
+        int[][] dp = new int[m][n];
+        for(int i = 0;i < m && obstacleGrid[i][0] == 0;i++) dp[i][0] = 1;
+        for(int j = 0;j < n && obstacleGrid[0][j] == 0;j++) dp[0][j] = 1;
+        for(int i = 1;i < m;i++){
+            for(int j= 1;j < n;j++){
+                if(obstacleGrid[i][j] == 0){
+                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
+                }
+            }
+        }
+        return dp[m-1][n-1];
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
