@@ -28,7 +28,14 @@ class Solution {
 ```
 ## leetcode96 不同二叉搜索树
 给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。
+![image](https://user-images.githubusercontent.com/88364565/198170169-f2980556-e029-462e-9a43-26d7a9a59dca.png)
 
+这道题首先得直到什么是二叉搜索树，我拿n=3举例，首先以1为根节点，那么2和3只能放在他右边，因为2，3大于1（与根节点相比较，大于根节点放在右边，小于放在左边）
+![image](https://user-images.githubusercontent.com/88364565/198170633-9bc279c5-a260-490d-afa4-5b14bd7e25c5.png)、
+当根节点为2
+![image](https://user-images.githubusercontent.com/88364565/198170941-693c36dc-8ffc-41b7-95ff-2bb6f065860e.png)
+当根节点为3
+![image](https://user-images.githubusercontent.com/88364565/198170871-96ad674b-5734-48a2-8c33-c271a862ddd7.png)
 
 
 
