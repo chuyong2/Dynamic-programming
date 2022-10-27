@@ -35,9 +35,11 @@ class Solution {
 ![image](https://user-images.githubusercontent.com/88364565/198170633-9bc279c5-a260-490d-afa4-5b14bd7e25c5.png)、
 
 当根节点为2
+
 ![image](https://user-images.githubusercontent.com/88364565/198170941-693c36dc-8ffc-41b7-95ff-2bb6f065860e.png)
 
 当根节点为3
+
 ![image](https://user-images.githubusercontent.com/88364565/198170871-96ad674b-5734-48a2-8c33-c271a862ddd7.png)
 
 
