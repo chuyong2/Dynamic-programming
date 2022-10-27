@@ -42,8 +42,27 @@ class Solution {
 
 ![image](https://user-images.githubusercontent.com/88364565/198170871-96ad674b-5734-48a2-8c33-c271a862ddd7.png)
 
-
-
+可以看出当n为3时可以用n=2，n=1，n=0时推导出来也就是dp[3]和dp[2],dp[1]有关，可以想到用动态规划
+ - dp[i]表示元素i为不同数作为根节点的二叉搜索树个数
+ - 引入j作为根节点，遍历从1-i，左子树节点数量为j-1，右子树节点数量为i-j，所以递推公式为：dp[i] += dp[j-1] * dp[i-j]
+ - 初始化dp[0] = 1，一或n作为根节点，其左子树或右子树为空节点，如果为0那么递推公式不成立，我们初始化为1就行
+java代码：
+```
+class Solution {
+    public int numTrees(int n) {
+        int[] dp = new int[n+1];
+        dp[0] = 1;
+        for(int i = 1 ;i <= n;i++){
+            for(int j = 1 ;j <= i ;j++){
+                dp[i] += dp[j-1] * dp[i-j];
+            }
+        }
+        return dp[n];
+    }
+}
+//时间复杂度O(n^2)
+//空间复杂度O(n)
+```
 
 
 
