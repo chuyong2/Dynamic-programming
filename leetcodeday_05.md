@@ -30,6 +30,11 @@
  - 递推公式：dp[j] = max(dp[j], dp[j - stones[i]] + stones[i])
  - 此题提示最大为30*100，那么容量我们可以算出来为1501就行，如何初始化dp[j]呢，因为重量都不会是负数，所以dp[j]都初始化为0就可以了，即Arrays.fill(dp,0)
  - 遍历和分割那题一样
+dp[target]⾥是容量为target的背包所能背的最⼤重量。
+那么分成两堆⽯头，⼀堆⽯头的总重量是dp[target]，另⼀堆就是weight - dp[target]。
+在计算target的时候，target = weight / 2 因为是向下取整，所以sum - dp[target] ⼀定是⼤于等于dp[target]的。
+那么相撞之后剩下的最⼩⽯头重量就是 (sum - dp[target]) - dp[target]。
+
 java代码
 ```
 class Solution {
