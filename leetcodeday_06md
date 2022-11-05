@@ -21,6 +21,11 @@
 输出：1
 ```
 我们可以把nums数组分为两部分，一部分是添加+号的，一部分是添加负号的，我们记左边+一堆为left，右边-为right = sum - left（sum为数组元素之和），那么target = 
-（正号堆） - （负号堆） = left - sum + left = 2left - sum,此时left = (target + sum)/2
+（正号堆） - （负号堆） = left - sum + left = 2left - sum,此时left = (target + sum)/2(向下取整),这题看target+sum要是非负且偶数。
+本题是装满有⼏种⽅法。其实这就是⼀个组合问题了
+ - dp[j] 表⽰：填满j这么⼤容积的包，有dp[i]种⽅法
+ - 
+
+
 
 
